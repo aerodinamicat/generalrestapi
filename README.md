@@ -31,8 +31,38 @@ Este proyecto constituye un lugar donde comenzar a realizar mis primeros pasos, 
 el mundo de la programación, pero si en las nuevas tecnologías y en el lenguaje *Go*.
 
 
+### Ideas y tareas pendientes posibles/probables
+Ésta sección se concentrará en dejar escritas ideas a discutir, así como tareas que
+podrían ser satisfechas:<ul>
+    <li>[] Creación e implementación del archivo *.gitignore*</li>
+    <li>[] Pruebas unitarias sobre el modelo de *person.go*.</li>
+</ul>
+
+
 ### Diario
-Y por llevar el registro de un diario:
+Y por llevar registro de un diario:
+
+2022-06-29:4
+- Actualizado *README.md*:
+    - Añadida la sección 'Ideas y tareas pendientes posibles/probables'.
+    - Intento de dar estilo con cajas de confirmación tipo *check box*.
+- Para el desarrollo de éste proyecto, he pensado usar un contenedor de docker con una
+imagen de PostGreSQL para el servicio de base de datos. Creado el archivo de docker
+*Dockerfile* en el directorio de base de datos con:
+    > touch database/Dockerfile
+- Ya que he pensado en usar diferentes servicios, he creado el archivo docker-compose
+en el directorio principal del proyecto *docker-compose.yml* con
+    > touch docker-compose.yml
+Aunque por ahora solo existe, y se vaya a utilizar, únicamente el servicio de base de
+datos, no está mal ir realizando éste tipo de tareas con vistas al futuro.
+- Mediante el archivo de docker-compose, ubicado en el directorio raíz del proyecto, he
+realizado pruebas de lanzamiento y conexión al servicio dockerizado de postgres, con:
+    > docker-compose build && docker-compose up
+Y para parar el contenedor lanzado, así como el resto de componentes, además de borrar
+las imágenes de compilación creadas, con:
+    > docker-compose down --rmi local
+- Sometido a pruebas:
+    - [x] Lanzamiento de base de datos postgres dockerizada.
 
 2022-06-29:3
 - Actualizado *README.md* y cambiado:

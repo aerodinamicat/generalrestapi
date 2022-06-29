@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  gri-db:
+    build:
+      context: ./database
+      dockerfile: ./Dockerfile
+    ports:
+      - "54321:5432"
+    networks:
+      - gri-net
+    environment:
+      - POSTGRES_DB=generalrestapi
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin1234
+
+networks:
+  gri-net:
+    name: gri-net
+
