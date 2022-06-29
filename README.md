@@ -1,6 +1,5 @@
 # General REST API
-
-## Mi proyecto personal sin rumbo ni destino
+Mi proyecto personal sin rumbo ni destino
 
 ### Propósito general
 Para el momento que escribo éste *README.md* aún no tengo claro para nada que funciones
@@ -27,8 +26,40 @@ Como se puede ver no tengo muy claro qué compone ni mi *arquitectura* ni mi *en
 trabajo*.
 
 
+### Conclusiones
+Este proyecto constituye un lugar donde comenzar a realizar mis primeros pasos, no en
+el mundo de la programación, pero si en las nuevas tecnologías y en el lenguaje *Go*.
+
+
 ### Diario
 Y por llevar el registro de un diario:
+
+2022-06-29:3
+- Actualizado *README.md* y cambiado:
+    - Subtítulo principal de *h2* a texto normal.
+    - Adelantada sección 'Conclusiones' justo antes de sección 'Diario'
+    - Cambiado el orden de entradas de diario de arriba a abajo, de mas reciente a mas
+    antigüo.
+- Creado el directorio de base de datos *database* con:
+    > mkdir database
+- Creado el archivo de consulta de base de datos inicial *initialQuery.sql* en el 
+directorio de base de datos con:
+    > touch database/initialQuery.sql
+- Implementado el modelo, o tabla, de base de datos 'persons' y comentado el código
+escrito.
+- Cambiada la formación del mensaje de los *commit*, de ahora en adelante se nombrarán
+como las entradas de éste diario, salvo excepciones puntuales. (Ergo este *commit* será
+'2022-06-29:3')
+
+2022-06-29:2
+- Creado el directorio de modelos *models* con:
+    > mkdir models
+- Creado el archivo de modelo *person.go* en el directorio de modelos con:
+    > touch models/person.go
+- Implementado el modelo de *Go* *person* y comentado el código escrito.
+- Actualizado *README.md* y cambiado los títulos *h3* y *h5* a *h2* y *h3*
+respectivamente.
+
 2022-06-29:1
 - Crearé la carpeta padre del proyecto local, llamada *generalrestapi* con:
     > mkdir generalrestapi
@@ -43,21 +74,9 @@ Y por llevar el registro de un diario:
     > git add .
 - Realizaré el primer commit con:
     > git commit -m "Initial commit - Full push"
-- Añadiré localmente este mismo repositorio en remoto, teniendo previamente configurado
-el acceso a *GitHub* con SSH, con:
+- Añadiré localmente este mismo repositorio en remoto, teniendo previamente
+configurado el acceso a *GitHub* con SSH, con:
     > git remote add origin git@github.com:aerodinamicat/generalrestapi.git
 - Y, por último en primera instancia, realizaré el primer *push* al recién creado
 repositorio con:
     > git push origin main
-
-2022-06-29:1
-- Creado directorio de modelos *models* con:
-    > mkdir models
-- Creado archivo de modelo *person.go* en el directorio de modelos con:
-    > touch models/person.go
-- Implementado el modelo *person* y comentado el código escrito.
-- Actualizado *README.md* y cambiado los títulos *h3* y *h5* a *h2* y *h3* respectivamente.
-
-### Conclusiones
-Este proyecto constituye un lugar donde comenzar a realizar mis primeros pasos, no en
-el mundo de la programación, pero si en las nuevas tecnologías y en el lenguaje *Go*.
