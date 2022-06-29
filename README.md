@@ -12,6 +12,7 @@ Por el momento, comenzaré por crear una REST API (sin identificación y sin seg
 - C.R.U.D. para objetos:
     - *person* (Persona)
         - [x] Definición e implementación del objeto en *Go*.
+        - [ ] Pruebas unitarias sobre el objeto de *Go*.
         - [ ] Create.
         - [ ] Read.
         - [ ] Update.
@@ -49,12 +50,31 @@ el mundo de la programación, pero si en las nuevas tecnologías y en el lenguaj
 ### Ideas posibles y/o probables
 Ésta sección se concentrará en dejar escritas ideas a discutir, así como tareas que
 podrían ser satisfechas:
-- [ ] Creación e implementación del archivo *.gitignore*
-- [ ] Pruebas unitarias sobre el modelo de *person.go*.
+- [ ] Creación e implementación del archivo *.gitignore*.
 
 
 ### Diario
 Y por llevar registro de un diario:
+
+2022-06-6:
+- Actualizado *README.md*:
+    - Correjido algunos errores de salto de línea en las *blockquotes*.
+- Creado el directorio de pruebas *tests* con:
+    > `$ mkdir tests`
+- Creado el archivo para pruebas *person_test.go* del modelo *person* con:
+    > `$ touch tests/'person_test.go`
+- Implementadas funciones de prueba en *person_test.go* para las funciones:
+    - *GetFullName()*
+    - *GetFullNameToList()*
+    - *GetInitials(bool)*
+    - *GetAge()*
+- Ejecutadas, y con éxito, los test de prueba para las funciones anteriores
+para el modelo *person* con:
+    > `$ go test tests/person_test.go`
+- Se creó la rama *person* porque durante la creación de los test de pruebas para
+*person* se encontraron algunas dificultades. Ahora que todo se ha solventado
+satisfactoriamente, se ha realizado un *merge* a la rama *main* con:
+    > `$ git merge main`
 
 2022-06-29:5
 - Actualizado *README.md*:
@@ -64,7 +84,7 @@ Y por llevar registro de un diario:
     - Modificación de sección 'Tareas pendientes':
         - Añadido estilo de cajas de confirmación.
         - Añadidas algunas tareas a realizar
-    - Modificadas las *blockquotes*. Añadido el bloque de código.
+    - Modificadas las *blockquotes*. Añadido apariencia de bloque de código.
 
 2022-06-29:4
 - Actualizado *README.md*:
@@ -77,12 +97,12 @@ imagen de PostGreSQL para el servicio de base de datos. Creado el archivo de doc
 - Ya que he pensado en usar diferentes servicios, he creado el archivo docker-compose
 en el directorio principal del proyecto *docker-compose.yml* con
     > `$ touch docker-compose.yml`
-Aunque por ahora solo existe, y se vaya a utilizar, únicamente el servicio de base de
+- Aunque por ahora solo existe, y se vaya a utilizar, únicamente el servicio de base de
 datos, no está mal ir realizando éste tipo de tareas con vistas al futuro.
 - Mediante el archivo de docker-compose, ubicado en el directorio raíz del proyecto, he
 realizado pruebas de lanzamiento y conexión al servicio dockerizado de postgres, con:
     > `$ docker-compose build && docker-compose up`
-Y para parar el contenedor lanzado, así como el resto de componentes, además de borrar
+- Y para detener el contenedor lanzado, así como el resto de componentes, además de borrar
 las imágenes de compilación creadas, con:
     > `$ docker-compose down --rmi local`
 - Sometido a pruebas:
