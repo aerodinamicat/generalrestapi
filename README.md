@@ -12,7 +12,7 @@ Por el momento, comenzaré por crear una REST API (sin identificación y sin seg
 - C.R.U.D. para objetos:
     - *person* (Persona)
         - [x] Definición e implementación del objeto en *Go*.
-        - [ ] Pruebas unitarias sobre el objeto de *Go*.
+        - [x] Pruebas unitarias sobre el objeto de *Go*.
         - [ ] Create.
         - [ ] Read.
         - [ ] Update.
@@ -50,15 +50,15 @@ el mundo de la programación, pero si en las nuevas tecnologías y en el lenguaj
 ### Ideas posibles y/o probables
 Ésta sección se concentrará en dejar escritas ideas a discutir, así como tareas que
 podrían ser satisfechas:
-- [ ] Creación e implementación del archivo *.gitignore*.
+    - [ ] Creación e implementación del archivo *.gitignore*.
 
 
 ### Diario
 Y por llevar registro de un diario:
 
-2022-06-6:
+2022-06-6:6
 - Actualizado *README.md*:
-    - Correjido algunos errores de salto de línea en las *blockquotes*.
+    - Corregido algunos errores de salto de línea en las *blockquotes*.
 - Creado el directorio de pruebas *tests* con:
     > `$ mkdir tests`
 - Creado el archivo para pruebas *person_test.go* del modelo *person* con:
@@ -78,7 +78,7 @@ satisfactoriamente, se ha realizado un *merge* a la rama *main* con:
 
 2022-06-29:5
 - Actualizado *README.md*:
-    - Correjido intento de estilo de cajas de confirmación tipo *check box* en la
+    - Corregido intento de estilo de cajas de confirmación tipo *check box* en la
     sección 'Ideas posibles y/o probables. Se ha reescrito en *Mark
     down*, removiendo el código *HTML* previamente implementado.
     - Modificación de sección 'Tareas pendientes':
