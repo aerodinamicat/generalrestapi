@@ -7,6 +7,28 @@ o propósito general tendrá todo este contenido; pero si puedo afirmar y confir
 se realizará completamente en lenguaje *Go*.
 
 
+### Arquitectura usada y entorno de trabajo
+Mi arquitectura:
+- Sistema operativo: Ubuntu 22.04 LTS
+
+Mi *workspace* (entorno de trabajo) actualmente se compone por:
+- Visual Studio Code
+
+Como se puede ver no tengo muy claro qué compone ni mi *arquitectura* ni mi *entorno de
+trabajo*.
+
+
+### Conclusiones
+Este proyecto constituye un lugar donde comenzar a realizar mis primeros pasos, no en
+el mundo de la programación, pero si en las nuevas tecnologías y en el lenguaje *Go*.
+
+
+### Procedimiento de ejecución del proyecto
+Esta sección tiene como objetivo proveer una serie de comandos para obtener el proyecto
+en un ámbito local, así como realizar la prueba de sus funcionalidades disponibles hasta
+su momento presente. PRÓXIMAMENTE
+
+
 ### Tareas pendientes a realizar
 Por el momento, comenzaré por crear una REST API (sin identificación y sin seguridad):
 - C.R.U.D. para objetos:
@@ -31,32 +53,28 @@ Por el momento, comenzaré por crear una REST API (sin identificación y sin seg
         - [ ] Delete.
 
 
-### Arquitectura usada y entorno de trabajo
-Mi arquitectura:
-- Sistema operativo: Ubuntu 22.04 LTS
-
-Mi *workspace* (entorno de trabajo) actualmente se compone por:
-- Visual Studio Code
-
-Como se puede ver no tengo muy claro qué compone ni mi *arquitectura* ni mi *entorno de
-trabajo*.
-
-
-### Conclusiones
-Este proyecto constituye un lugar donde comenzar a realizar mis primeros pasos, no en
-el mundo de la programación, pero si en las nuevas tecnologías y en el lenguaje *Go*.
-
-
 ### Ideas posibles y/o probables
 Ésta sección se concentrará en dejar escritas ideas a discutir, así como tareas que
 podrían ser satisfechas:
     - [ ] Creación e implementación del archivo *.gitignore*.
+    - [ ] Completar sección 'Procedimiento de ejecución del proyecto'
 
 
 ### Diario
 Y por llevar registro de un diario:
 
-2022-06-6:6
+2022-06-29:1
+- Actualizado *README.md*:
+    - Corregidos algunos *typos* sueltos.
+    - Añadida la sección 'Procedimiento de ejecución del proyecto'
+- Creado el archivo de modelo de *Go* llamado *Logbook* para conservar un histórico
+de 'cuando' y 'quién realizó cambios en algún objeto registrado, con:
+    > `$ touch models/logbook.go`
+- Implementado el modelo de *logbook.go*. No se han realizado pruebas dado que no
+tiene métodos, o comportamientos.
+- Modificados el resto de los modelos, previamente creados, para usar éste nuevo.
+
+2022-06-29:6
 - Actualizado *README.md*:
     - Corregido algunos errores de salto de línea en las *blockquotes*.
 - Creado el directorio de pruebas *tests* con:
@@ -71,8 +89,8 @@ Y por llevar registro de un diario:
 - Ejecutadas, y con éxito, los test de prueba para las funciones anteriores
 para el modelo *person* con:
     > `$ go test tests/person_test.go`
-- Se creó la rama *person* porque durante la creación de los test de pruebas para
-*person* se encontraron algunas dificultades. Ahora que todo se ha solventado
+- Se creó la rama *person* porque durante la creación e implementación de sus
+tests de pruebas se encontraron algunas dificultades. Ahora que todo se ha solventado
 satisfactoriamente, se ha realizado un *merge* a la rama *main* con:
     > `$ git merge main`
 
@@ -84,7 +102,7 @@ satisfactoriamente, se ha realizado un *merge* a la rama *main* con:
     - Modificación de sección 'Tareas pendientes':
         - Añadido estilo de cajas de confirmación.
         - Añadidas algunas tareas a realizar
-    - Modificadas las *blockquotes*. Añadido apariencia de bloque de código.
+    - Modificadas las *blockquotes*. Añadida apariencia de bloque de código.
 
 2022-06-29:4
 - Actualizado *README.md*:
