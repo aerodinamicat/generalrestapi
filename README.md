@@ -35,18 +35,28 @@ Por el momento, comenzaré por crear una REST API (sin identificación y sin seg
     - *person* (Persona)
         - [x] Definición e implementación del objeto en *Go*.
         - [x] Pruebas unitarias sobre el objeto de *Go*.
+        - [x] Creada Sentencia SQL.
         - [ ] Create.
         - [ ] Read.
         - [ ] Update.
         - [ ] Delete.
     - *user* (Usuario)
         - [x] Definición e implementación del objeto en *Go*.
+        - [x] Creada Sentencia SQL.
         - [ ] Create.
         - [ ] Read.
         - [ ] Update.
         - [ ] Delete.
     - *ledger account* (Cuenta contable)
         - [ ] Definición e implementación del objeto en *Go*.
+        - [ ] Creada Sentencia SQL.
+        - [ ] Create.
+        - [ ] Read.
+        - [ ] Update.
+        - [ ] Delete.
+    - *company* (Empresa)
+        - [ ] Definición e implementación del objeto en *Go*.
+        - [x] Creada Sentencia SQL.
         - [ ] Create.
         - [ ] Read.
         - [ ] Update.
@@ -62,6 +72,31 @@ podrían ser satisfechas:
 
 ### Diario
 Y por llevar registro de un diario:
+
+2022-06-30:3
+- Actualizado *README.md*.
+    - Corregidos algunos *typos* sueltos.
+    - Modificado el modelo de *Go* llamado *accountingTransaction.go*, eliminada propiedad
+    *ZeroSum*, ya que representaba un valor de un campo, o variable, calculada. No tiene
+    sentido guardar su valor.
+    - Modificado el archivo *initialQuery.sql* para añadir los modelos de tabla de:
+        - *users*
+        - *logbook_records*
+        - *companies*
+        - *accounting_records*
+        - *accounting_transactions*
+    - Una vez añadida el modelo de tabla 'logbook_records', han sido eliminados del resto
+    de modelos (ya que es función de 'logbook' guardar dicha información) los campos de:
+        - *created_at*
+        - *created_by_user_id*
+        - *modified_at*
+        - *modified_by_user_id*
+    - Renombradas las constantes de ámbito global, así como la propiedad a la que hacen
+    referencia, del archivos *accountingRecord.go*:
+        - Propiedad *Type*, renombrada a: *Nature*.
+        - Constantes de ámbito global:
+            - *TYPE_CREDIT*, renombrado a: *NATURE_CREDIT*.
+            - *TYPE_DEBIT*, renombrado a: *NATURE_DEBIT*.
 
 2022-06-30:2
 - Actualizado *README.md*. Corregidos algunos *typos* sueltos.
