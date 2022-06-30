@@ -40,7 +40,7 @@ Por el momento, comenzaré por crear una REST API (sin identificación y sin seg
         - [ ] Update.
         - [ ] Delete.
     - *user* (Usuario)
-        - [ ] Definición e implementación del objeto en *Go*.
+        - [x] Definición e implementación del objeto en *Go*.
         - [ ] Create.
         - [ ] Read.
         - [ ] Update.
@@ -62,6 +62,9 @@ podrían ser satisfechas:
 
 ### Diario
 Y por llevar registro de un diario:
+
+2022-06-30:2
+- Actualizado *README.md*. Corregidos algunos *typos* sueltos.
 
 2022-06-30:1
 - Actualizado *README.md*:
@@ -93,7 +96,7 @@ a su método:
 - Creado el directorio de pruebas *tests* con:
     > `$ mkdir tests`
 - Creado el archivo para pruebas *person_test.go* del modelo *person* con:
-    > `$ touch tests/'person_test.go`
+    > `$ touch tests/person_test.go`
 - Implementadas funciones de prueba en *person_test.go* para las funciones:
     - *GetFullName()*
     - *GetFullNameToList()*
