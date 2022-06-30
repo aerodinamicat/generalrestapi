@@ -63,16 +63,20 @@ podrían ser satisfechas:
 ### Diario
 Y por llevar registro de un diario:
 
-2022-06-29:1
+2022-06-30:1
 - Actualizado *README.md*:
     - Corregidos algunos *typos* sueltos.
     - Añadida la sección 'Procedimiento de ejecución del proyecto'
-- Creado el archivo de modelo de *Go* llamado *Logbook* para conservar un histórico
+- Creado el archivo de modelo de *Go* llamado *logbook.go* para conservar un histórico
 de 'cuando' y 'quién realizó cambios en algún objeto registrado, con:
     > `$ touch models/logbook.go`
-- Implementado el modelo de *logbook.go*. No se han realizado pruebas dado que no
-tiene métodos, o comportamientos.
-- Modificados el resto de los modelos, previamente creados, para usar éste nuevo.
+- Implementado el modelo de *logbook*. No se han realizado pruebas dado que no
+tiene métodos, o comportamientos. Modificados el resto de los modelos, previamente
+creados, para que usen éste nuevo.
+- Creado el archivo de modelo de *Go* llamado *user.go* con:
+    > `$ touch models/user.go`
+- Implementado el modelo de *user*. No se han realizado pruebas dado que éste modelo
+en particular carece de métodos, o comportamientos.
 
 2022-06-29:6
 - Actualizado *README.md*:
