@@ -7,15 +7,15 @@ import (
 	"github.com/aerodinamicat/generalrestapi/models"
 )
 
-var testObjects []models.Person
+var testPersons []models.Person
 var expectedResultsFromGetFullName []string
 var expectedResultsFromGetFullNameToList []string
 var expectedResultsFromGetInitialsWithoutDelimiter []string
 var expectedResultsFromGetInitialsWithDelimiter []string
 var expectedResultsFromGetAge []int
 
-func FillTestVariables() {
-	testObjects = []models.Person{
+func FillTestPersonVariables() {
+	testPersons = []models.Person{
 		{
 			FirstName:     "Aaaa",
 			SecondName:    "Bbbb",
@@ -74,9 +74,10 @@ func FillTestVariables() {
 func TestGetFullName(t *testing.T) {
 	var testResult string
 	var expectedResult string
-	FillTestVariables()
 
-	for index, item := range testObjects {
+	FillTestPersonVariables()
+
+	for index, item := range testPersons {
 		testResult = item.GetFullName()
 		expectedResult = expectedResultsFromGetFullName[index]
 
@@ -89,9 +90,10 @@ func TestGetFullName(t *testing.T) {
 func TestGetFullNameToList(t *testing.T) {
 	var testResult string
 	var expectedResult string
-	FillTestVariables()
 
-	for index, item := range testObjects {
+	FillTestPersonVariables()
+
+	for index, item := range testPersons {
 		testResult = item.GetFullNameToList(",")
 		expectedResult = expectedResultsFromGetFullNameToList[index]
 
@@ -104,9 +106,10 @@ func TestGetFullNameToList(t *testing.T) {
 func TestGetInitials(t *testing.T) {
 	var testResult string
 	var expectedResult string
-	FillTestVariables()
 
-	for index, item := range testObjects {
+	FillTestPersonVariables()
+
+	for index, item := range testPersons {
 		testResult = item.GetInitials(true)
 		expectedResult = expectedResultsFromGetInitialsWithDelimiter[index]
 
@@ -126,9 +129,10 @@ func TestGetInitials(t *testing.T) {
 func TestGetAge(t *testing.T) {
 	var testResult int
 	var expectedResult int
-	FillTestVariables()
 
-	for index, item := range testObjects {
+	FillTestPersonVariables()
+
+	for index, item := range testPersons {
 		testResult = item.GetAge()
 		expectedResult = expectedResultsFromGetAge[index]
 

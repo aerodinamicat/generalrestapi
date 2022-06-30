@@ -2,7 +2,8 @@ package models
 
 /** Modelo 'User' (Usuario)
 *
-* Propósito: Representa la información guardada sobre un usuario. Se trata de una entidad débil en existencia, ya que depende de la entidad 'Person'.
+* Propósito: Representa la información guardada sobre un usuario.
+*	Se trata de una entidad débil en existencia, ya que depende de la entidad 'Person'.
 *
 * Propiedades:
 *	- 'Id': De tipo 'string', para identificar de forma unívoca e inequívoca al usuario.

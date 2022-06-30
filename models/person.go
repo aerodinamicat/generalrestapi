@@ -8,6 +8,7 @@ import (
 /** Modelo 'Person' (Persona)
 *
 * Propósito: Representa la información guardada sobre una persona.
+*	Se trata de una entidad fuerte.
 *
 * Propiedades:
 *	- 'Id': De tipo 'string', para identificar de forma unívoca e inequívoca.
@@ -18,6 +19,9 @@ import (
 *	- 'DateOfBirth': De tipo 'time.Time', representa el momento en el tiempo cuando tomó lugar el nacimiento de la persona.
 *		- Formato: "YY-MM-AA HH:MM:SS".
 *	- 'Gender': De tipo 'string', representa el género biológico binario de la persona.
+*		- Valores admitidos:
+*			- GENDER_FEMALE: 0 (Femenino).
+*			- GENDER_MALE: 1 (Masculino).
 *	- 'Alias': De tipo 'string', representa un pseudónimo, una forma mas popular o corta de nombrar a la persona.
 *
 * Comportamientos:
@@ -45,6 +49,12 @@ import (
 *			- 'Sin nombre': De tipo 'int', representa la diferencia, en años, del momento de nacimiento de la persona y el de la actualidad.
  */
 
+//* Definición - Constantes - Ámbito global
+const (
+	GENDER_FEMALE = "0" //* Representa el género 'female', o femenino.
+	GENDER_MALE   = "1" //* Representa el género 'male', o masculino
+)
+
 //* Definición  - Objeto 'Person': representa la información guardada sobre una persona
 type Person struct {
 	Id            string    `json:"id"`             //* Representa el identificador único.
@@ -63,17 +73,17 @@ type Person struct {
 *			- 'Sin nombre': De tipo 'string', representa el nombre completo de la persona.
 *				- Formato: "FirstName+' '+SecondName+' '+FirstSurname'+' '+SecondSurname"
  */
-func (person *Person) GetFullName() string {
+func (p *Person) GetFullName() string {
 	result := ""
 
-	result = person.FirstName
-	if person.SecondName != "" {
-		result = result + " " + person.SecondName
+	result = p.FirstName
+	if p.SecondName != "" {
+		result = result + " " + p.SecondName
 	}
 
-	result = result + " " + person.FirstSurname
-	if person.SecondSurname != "" {
-		result = result + " " + person.SecondSurname
+	result = result + " " + p.FirstSurname
+	if p.SecondSurname != "" {
+		result = result + " " + p.SecondSurname
 	}
 
 	return result
@@ -87,20 +97,20 @@ func (person *Person) GetFullName() string {
 *			- 'Sin nombre': De tipo 'string', representa el nombre completo de la persona.
 *				- Formato: "FirstSurname+' '+SecondSurname+delimiterCharacter+' '+FirstName+' '+SecondName"
  */
-func (person *Person) GetFullNameToList(delimiterCharacter string) string {
+func (p *Person) GetFullNameToList(delimiterCharacter string) string {
 	result := ""
 
-	result = person.FirstSurname
-	if person.SecondSurname != "" {
-		result = result + " " + person.SecondSurname
+	result = p.FirstSurname
+	if p.SecondSurname != "" {
+		result = result + " " + p.SecondSurname
 	}
 
 	if delimiterCharacter == "" {
 		delimiterCharacter = ","
 	}
-	result = result + delimiterCharacter + " " + person.FirstName
-	if person.SecondName != "" {
-		result = result + " " + person.SecondName
+	result = result + delimiterCharacter + " " + p.FirstName
+	if p.SecondName != "" {
+		result = result + " " + p.SecondName
 	}
 
 	return result
@@ -113,11 +123,11 @@ func (person *Person) GetFullNameToList(delimiterCharacter string) string {
 *		- Parámetros de salida:
 *			- 'Sin nombre': De tipo 'string' representa el acrónimo del nombre completo de la persona.
  */
-func (person *Person) GetInitials(withDelimiterCharacter bool) string {
+func (p *Person) GetInitials(withDelimiterCharacter bool) string {
 	delimiterCharacter := "."
 
 	result := ""
-	personData := []string{person.FirstName, person.SecondName, person.FirstSurname, person.SecondSurname}
+	personData := []string{p.FirstName, p.SecondName, p.FirstSurname, p.SecondSurname}
 	for _, data := range personData {
 		if data != "" {
 			result = result + strings.ToUpper(data[0:1])
@@ -135,6 +145,6 @@ func (person *Person) GetInitials(withDelimiterCharacter bool) string {
 *		- Parámetros de salida:
 *			- 'Sin nombre': De tipo 'int', representa la diferencia, en años, del momento de nacimiento de la persona y el de la actualidad.
  */
-func (person *Person) GetAge() int {
-	return time.Now().Year() - person.DateOfBirth.Year()
+func (p *Person) GetAge() int {
+	return time.Now().Year() - p.DateOfBirth.Year()
 }

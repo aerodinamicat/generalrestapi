@@ -70,13 +70,22 @@ Y por llevar registro de un diario:
 - Creado el archivo de modelo de *Go* llamado *logbook.go* para conservar un histórico
 de 'cuando' y 'quién realizó cambios en algún objeto registrado, con:
     > `$ touch models/logbook.go`
-- Implementado el modelo de *logbook*. No se han realizado pruebas dado que no
+- Implementado el modelo de *Logbook*. No se han realizado pruebas dado que no
 tiene métodos, o comportamientos. Modificados el resto de los modelos, previamente
 creados, para que usen éste nuevo.
 - Creado el archivo de modelo de *Go* llamado *user.go* con:
     > `$ touch models/user.go`
-- Implementado el modelo de *user*. No se han realizado pruebas dado que éste modelo
+- Implementado el modelo de *User*. No se han realizado pruebas dado que éste modelo
 en particular carece de métodos, o comportamientos.
+- Creado el archivo de modelo de *Go* llamado *accountingRecord.go* con:
+    > `$ touch models/accountingRecord.go`
+- Implementado el modelo de *AccountingRecord*. No se han realizado pruebas dado que
+éste modelo en particular carece de métodos, o comportamientos.
+- Creado el archivo de modelo de *Go* llamado *accountingTransaction.go* con:
+    > `$ touch models/accountingTransaction.go`
+- Implementado el modelo de *AccountingTransaction*. Se han realizado pruebas satisfactorias
+a su método:
+    - *CalculateZeroSum(aRecords)*
 
 2022-06-29:6
 - Actualizado *README.md*:
