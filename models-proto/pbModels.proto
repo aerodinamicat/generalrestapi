@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package pbModels;
+package models;
 
-option go_package = "pbmodels";
+option go_package = "github.com/aerodinamicat/generalrestapi/pbmodels";
 
 //* Definición de Modelos de Objetos.
 message Person {
@@ -21,9 +21,9 @@ message Empty {}
 service PersonService {
     rpc ListPersons(ListPersonsRequest) returns (ListPersonsResponse);
     rpc GetPerson(GetPersonRequest) returns (Person);
-    rpc Create(CreatePersonRequest) returns (Person);
-    rpc Update(UpdatePersonRequest) returns (Person);
-    rpc Delete(DeletePersonRequest) returns (Empty);
+    rpc CreatePerson(CreatePersonRequest) returns (Person);
+    rpc UpdatePerson(UpdatePersonRequest) returns (Person);
+    rpc DeletePerson(DeletePersonRequest) returns (Empty);
 }
 
 message ListPersonsRequest {

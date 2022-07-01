@@ -77,6 +77,29 @@ podrían ser satisfechas:
 ### Diario
 Y por llevar registro de un diario:
 
+2022-07-01:2
+- Modificaciones en el archivo *pbModels.proto* los siguientes errores:
+    - Corregidos algunos *typos* de referencia de métodos.
+    - Cambiado el nombre del paquete de *Protobuffer* a:
+        - 'pbmodels'.
+    - Cambiado el nombre del paquete de *Go* a:
+        - 'github.com/aerodinamicat/generalrestapi/pbmodels'
+- Importadas algunas librerías externas para comenzar a trabajar con *Protobuffer* con:
+    > `$ go get google.golang.org/grpc`
+    > `$ go get google.golang.org/protobuf`
+- Creado el directorio *repositories* en el directorio raíz del proyecto con:
+    > `$ mkdir repositories`
+- Creado el archivo *personsRepository.go* en el directorio correspondiente con:
+    > `$ touch repositories/personServiceRepository.go`
+- Implementado el modelo *PersonService* de *Protobuffer* en el archivo
+*personRepository.go* de *Go* para satisfacer todos los métodos definidos en el archivo
+*pbModels.proto*.
+- Creado el directorio *servers* en el directorio raíz del proyecto con:
+    > `$ mkdir servers`
+- Creado el archivo *PersonsServer.go* de *Go* en el directorio correpondiente con:
+    > `$ touch servers/personServer.go`
+
+
 2022-07-01:1
 - Actualizado *README.md*.
     - Actualizada sección 'Tareas pendientes a realizar' tras leer:
@@ -95,6 +118,7 @@ directorio con:
     > `$ touch models-protos/pbModels.proto`
 - Implementado el modelo 'Person' de *Protobuffer* en el archivo *pbModels.proto*. No
 ha sido compilado aún por primera vez.
+
 
 2022-06-30:3
 - Actualizado *README.md*.
@@ -121,8 +145,10 @@ de:
         - *TYPE_CREDIT*, renombrado a: *NATURE_CREDIT*.
         - *TYPE_DEBIT*, renombrado a: *NATURE_DEBIT*.
 
+
 2022-06-30:2
 - Actualizado *README.md*: Corregidos algunos *typos* sueltos.
+
 
 2022-06-30:1
 - Actualizado *README.md*:
@@ -149,6 +175,7 @@ modelo en particular carece de métodos, o comportamientos.
 satisfactorias a su único método (por el momento a fecha de hoy):
     - *CalculateZeroSum(aRecords)*
 
+
 2022-06-29:6
 - Actualizado *README.md*:
     - Corregido algunos errores de salto de línea en las *blockquotes*.
@@ -171,6 +198,7 @@ tests de pruebas se encontraron algunas dificultades. Ahora que todo se ha solve
 satisfactoriamente, se ha realizado un *merge* a la rama *main* con:
     > `$ git merge main`
 
+
 2022-06-29:5
 - Actualizado *README.md*:
     - Corregido intento de estilo de cajas de confirmación tipo *check box* en la
@@ -180,6 +208,7 @@ satisfactoriamente, se ha realizado un *merge* a la rama *main* con:
         - Añadido estilo de cajas de confirmación.
         - Añadidas algunas tareas a realizar
     - Modificadas las *Blockquotes*. Añadida apariencia de bloque de código.
+
 
 2022-06-29:4
 - Actualizado *README.md*:
@@ -207,6 +236,7 @@ las imágenes de compilación creadas, con:
     - [x] Conexión mediante *DBeaver*, un RDBMS (Sistema de Gestión de Base de Datos
     Relacional), realizado de forma satisfactoria.
 
+
 2022-06-29:3
 - Actualizado *README.md* y cambiado:
     - Subtítulo principal de *h2* a texto normal.
@@ -232,6 +262,7 @@ como las entradas de éste diario, salvo excepciones puntuales. (Ergo este *comm
 - Creado el archivo *person.go* de modelo de *Go* en su directorio correspondiente con:
     > `$ touch models/person.go`
 - Implementado el modelo *Person* de *Go* y comentado el código escrito.
+
 
 2022-06-29:1
 - Crearé el directorio *generalrestapi* que será el directorio raíz del proyecto local
