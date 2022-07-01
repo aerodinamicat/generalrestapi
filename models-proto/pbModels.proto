@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package pbModels;
+
+option go_package = "pbmodels";
+
+//* Definición de Modelos de Objetos.
+message Person {
+    string id = 1;
+    string first_name = 2;
+    string second_name = 3;
+    string first_surname = 4;
+    string second_surname = 5;
+    string date_of_birth = 6;
+    string gender = 7;
+    string alias = 8;
+}
+message Empty {}
+
+//* Definición de Servicios según los Modelos de Objetos anteriores.
+service PersonService {
+    rpc ListPersons(ListPersonsRequest) returns (ListPersonsResponse);
+    rpc GetPerson(GetPersonRequest) returns (Person);
+    rpc Create(CreatePersonRequest) returns (Person);
+    rpc Update(UpdatePersonRequest) returns (Person);
+    rpc Delete(DeletePersonRequest) returns (Empty);
+}
+
+message ListPersonsRequest {
+    //string parent = 1;                      //* No entiendo que vamos a poner aquí, es decir, porque existe ésta propiedad.
+    int32 page_size = 1;                    //* Cantidad de objetos, en este caso 'personas', mostradas en cada página.
+    string page_token = 2;                  //* Número de la página actual. Ésta numeración siempre comienza en CERO.
+}
+message ListPersonsResponse {
+    repeated Person person = 1;             //* Array, o slice, de objetos, en este caso de tipo 'Person', ya que se definió el modificador 'repeated'.
+    string next_page_token = 2;             //* Número de la página siguiente a la actualmente mostrada.
+}
+
+message GetPersonRequest {
+    string id = 1;                          //* Para identificar de forma inequívoca un objeto 'person', únicamente necesitamos su 'id'.
+}
+
+message CreatePersonRequest {
+    //string parent = 1;                      //* Lo mismo que antes en 'ListPersonsRequest', no entiendo el porqué de su existencia.
+    //string person_id = 2;                   //* En el ejemplo, entiendo que el campo 'id' viene generado ya en la 'request', pero lo generaremos más tarde.
+    Person person = 1;
+}
+
+message UpdatePersonRequest {
+    Person person = 1;
+    //FieldMask update_mask = 2;              //* No entiendo que vamos a poner aquí, es decir, porque existe ésta propiedad-
+}
+
+message DeletePersonRequest {
+    string person_id = 1;
+}
