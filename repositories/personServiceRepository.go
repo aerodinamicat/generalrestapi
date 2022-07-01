@@ -7,7 +7,7 @@ import (
 )
 
 type PersonServiceRepository interface {
-	ListPersons(ctx context.Context, pageSize uint, pageToken string) ([]*models.Person, error)
+	ListPersons(ctx context.Context, orderBy string, pageSize uint, pageToken string) ([]*models.Person, error)
 	GetPerson(ctx context.Context, personId string) (*models.Person, error)
 	CreatePerson(ctx context.Context, person *models.Person) (*models.Person, error)
 	UpdatePerson(ctx context.Context, person *models.Person) (*models.Person, error)
@@ -20,8 +20,8 @@ func SetPersonServiceRepository(psr PersonServiceRepository) {
 	psrImplementation = psr
 }
 
-func ListPersons(ctx context.Context, pageSize uint, pageToken string) ([]*models.Person, error) {
-	return psrImplementation.ListPersons(ctx, pageSize, pageToken)
+func ListPersons(ctx context.Context, orderBy string, pageSize uint, pageToken string) ([]*models.Person, error) {
+	return psrImplementation.ListPersons(ctx, orderBy, pageSize, pageToken)
 }
 func GetPerson(ctx context.Context, personId string) (*models.Person, error) {
 	return psrImplementation.GetPerson(ctx, personId)

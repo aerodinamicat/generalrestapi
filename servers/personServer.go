@@ -3,8 +3,7 @@ package servers
 import (
 	"context"
 
-	"github.com/aerodinamicat/generalrestapi/models"
-	pbmodels "github.com/aerodinamicat/generalrestapi/pbmodels"
+	"github.com/aerodinamicat/generalrestapi/pbmodels"
 	"github.com/aerodinamicat/generalrestapi/repositories"
 )
 
@@ -19,21 +18,35 @@ func NewPersonServerInstance(repository repositories.PersonServiceRepository) *P
 	}
 }
 
-func (srv *PersonServer) ListPersons(ctx context.Context, pageSize uint, pageToken string) ([]*models.Person, error) {
+func (srv *PersonServer) ListPersons(ctx context.Context, request *pbmodels.ListPersonsRequest) (*pbmodels.ListPersonsResponse, error) {
 	return nil, nil
 }
-func (srv *PersonServer) GetPerson(ctx context.Context, personId string) (*models.Person, error) {
+func (srv *PersonServer) GetPerson(ctx context.Context, request *pbmodels.GetPersonRequest) (*pbmodels.Person, error) {
+	person, err := srv.repository.GetPerson(ctx, request.GetId())
+	if err != nil {
+		return nil, err
+	}
+
+	return &pbmodels.Person{
+		Id:            person.Id,
+		FirstName:     person.FirstName,
+		SecondName:    person.SecondName,
+		FirstSurname:  person.FirstSurname,
+		SecondSurname: person.SecondSurname,
+		DateOfBirth:   person.DateOfBirth.String(),
+		Gender:        person.Gender,
+		Alias:         person.Alias,
+	}, nil
+}
+
+func (srv *PersonServer) CreatePerson(ctx context.Context, request *pbmodels.CreatePersonRequest) (*pbmodels.Person, error) {
 	return nil, nil
 }
 
-func (srv *PersonServer) CreatePerson(ctx context.Context, person *models.Person) (*models.Person, error) {
+func (srv *PersonServer) UpdatePerson(ctx context.Context, request *pbmodels.UpdatePersonRequest) (*pbmodels.Person, error) {
 	return nil, nil
 }
 
-func (srv *PersonServer) UpdatePerson(ctx context.Context, person *models.Person) (*models.Person, error) {
+func (srv *PersonServer) DeletePerson(ctx context.Context, request *pbmodels.DeletePersonRequest) (*pbmodels.Empty, error) {
 	return nil, nil
-}
-
-func (srv *PersonServer) DeletePerson(ctx context.Context, personId string) error {
-	return nil
 }

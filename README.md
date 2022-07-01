@@ -39,7 +39,7 @@ Por el momento, comenzaré por crear una REST API (sin identificación y sin seg
         - [ ] List (usando el método de HTTP: 'GET').
         - [ ] Get (usando el método de HTTP: 'GET').
         - [ ] Create (usando el método de HTTP: 'POST').
-        - [ ] Update (usando el método de HTTP: 'PATCH').
+        - [ ] Update (usando el método de HTTP: 'PUT').
         - [ ] Delete (usando el método de HTTP: 'DELETE').
     - *user* (Usuario)
         - [x] Definición e implementación del objeto en *Go*.
@@ -47,7 +47,7 @@ Por el momento, comenzaré por crear una REST API (sin identificación y sin seg
         - [ ] List (usando el método de HTTP: 'GET').
         - [ ] Get (usando el método de HTTP: 'GET').
         - [ ] Create (usando el método de HTTP: 'POST').
-        - [ ] Update (usando el método de HTTP: 'PATCH').
+        - [ ] Update (usando el método de HTTP: 'PUT').
         - [ ] Delete (usando el método de HTTP: 'DELETE').
     - *ledger account* (Cuenta contable)
         - [ ] Definición e implementación del objeto en *Go*.
@@ -55,7 +55,7 @@ Por el momento, comenzaré por crear una REST API (sin identificación y sin seg
         - [ ] List (usando el método de HTTP: 'GET').
         - [ ] Get (usando el método de HTTP: 'GET').
         - [ ] Create (usando el método de HTTP: 'POST').
-        - [ ] Update (usando el método de HTTP: 'PATCH').
+        - [ ] Update (usando el método de HTTP: 'PUT').
         - [ ] Delete (usando el método de HTTP: 'DELETE').
     - *company* (Empresa)
         - [ ] Definición e implementación del objeto en *Go*.
@@ -63,7 +63,7 @@ Por el momento, comenzaré por crear una REST API (sin identificación y sin seg
         - [ ] List (usando el método de HTTP: 'GET').
         - [ ] Get (usando el método de HTTP: 'GET').
         - [ ] Create (usando el método de HTTP: 'POST').
-        - [ ] Update (usando el método de HTTP: 'PATCH').
+        - [ ] Update (usando el método de HTTP: 'PUT').
         - [ ] Delete (usando el método de HTTP: 'DELETE').
 
 
@@ -77,6 +77,32 @@ podrían ser satisfechas:
 ### Diario
 Y por llevar registro de un diario:
 
+2022-07-01:3
+- Actualizado *README.md*:
+    - Corregidos algunos *typos* dispersos por este documento.
+    - Cambiado sección 'Tareas pendientes a realizar - C.R.U.D para objetos', todas
+    las referencias a métodos 'PATCH' de *HTTP* por 'PUT'.
+    - Removidos los caracteres de escape '`' en los enlaces de éste mismo archivo.
+- Implementado el modelo *PersonsServer* de *Go* para satisfacer el servicio
+*PersonService* ubicado en el archivo *pbModels.go*.
+- Creado el archivo *databaseRepository.go* de *Go* en el directorio correspondiente
+con:
+    > `$ touch repositories/databaseRepository.go`
+- Implementado el modelo *DatabaseRepository* de *Go*. No se ha realizado prueba alguna.
+- Creado el archivo *postgres.go* de *Go* en el directorio 'database' con:
+    > `$ touch database/postgres.go`
+- Importadas algunas librerías externas:
+    - Para trabajar con *PostgreSQL* mediante *Go* con:
+        > `$ go get github.com/lib/pq`
+    - Para crear cadenas de caracteres únicos firmados mediante *Go* con:
+        > `$ go get github.com/segmentio/ksuid`
+    - Para manejar las rutas y crear los diferentes 'endpoints' mediante *Go* con:
+        > `$ go get github.com/gorilla/mux`
+    - Para transmitir de forma compacta, autónoma y segura información *JSON* con:
+        > `$ go get github.com/golang-jwt/jwt`
+    - Para trabajar con *WebSockets* mediante *Go* con:
+        > `$ go get github.com/gorilla/websocket`
+
 2022-07-01:2
 - Modificaciones en el archivo *pbModels.proto* los siguientes errores:
     - Corregidos algunos *typos* de referencia de métodos.
@@ -86,24 +112,28 @@ Y por llevar registro de un diario:
         - 'github.com/aerodinamicat/generalrestapi/pbmodels'
 - Importadas algunas librerías externas para comenzar a trabajar con *Protobuffer* con:
     > `$ go get google.golang.org/grpc`
+    >
     > `$ go get google.golang.org/protobuf`
-- Creado el directorio *repositories* en el directorio raíz del proyecto con:
+- Realizada la compilación, por primera vez, del archivo del modelos *pbModels.go* de
+*Protobuffer* con (desde la carpeta 'raíz' del proyecto):
+    > `$ protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative models-proto/pbModels.go`
+- Creado el directorio *repositories* en el directorio 'raíz' del proyecto con:
     > `$ mkdir repositories`
-- Creado el archivo *personsRepository.go* en el directorio correspondiente con:
+- Creado el archivo *personsRepository.go* de *Go* en el directorio correspondiente con:
     > `$ touch repositories/personServiceRepository.go`
 - Implementado el modelo *PersonService* de *Protobuffer* en el archivo
 *personRepository.go* de *Go* para satisfacer todos los métodos definidos en el archivo
 *pbModels.proto*.
-- Creado el directorio *servers* en el directorio raíz del proyecto con:
+- Creado el directorio *servers* en el directorio 'raíz' del proyecto con:
     > `$ mkdir servers`
-- Creado el archivo *PersonsServer.go* de *Go* en el directorio correpondiente con:
+- Creado el archivo *PersonsServer.go* de *Go* en el directorio correspondiente con:
     > `$ touch servers/personServer.go`
 
 
 2022-07-01:1
 - Actualizado *README.md*.
     - Actualizada sección 'Tareas pendientes a realizar' tras leer:
-        -  [`Métodos estándar - API de Google Cloud`](https://cloud.google.com/apis/design/standard_methods)
+        -  [Métodos estándar - API de Google Cloud](https://cloud.google.com/apis/design/standard_methods)
     - Corregidas, y estandarizadas, las formulaciones de referencias, escritas en este
     archivo, sobre:
         - Entidades de *SQL*.
@@ -111,7 +141,7 @@ Y por llevar registro de un diario:
         - Ramas de *Git*.
         - Archivos de *Docker*
         - Archivos de *Docker Compose*
-- Creado el directorio *models-protos* en el directorio raíz del proyecto con:
+- Creado el directorio *models-protos* en el directorio 'raíz' del proyecto con:
     > `$ mkdir models-protos`
 - Creado el archivo de modelo *pbModels.proto* de *Protobuffer* en su respectivo
 directorio con:
@@ -165,11 +195,13 @@ creados, para que usen éste nuevo.
     > `$ touch models/user.go`
 - Implementado el modelo de *User* de *Go*. No se han realizado pruebas dado que éste
 modelo en particular carece de métodos, o comportamientos.
-- Creado el archivo de modelo *accountingRecord.go* de *Go* con:
+- Creado el archivo de modelo *accountingRecord.go* de *Go* en su directorio correspondiente
+con:
     > `$ touch models/accountingRecord.go`
 - Implementado el modelo de *AccountingRecord*. No se han realizado pruebas dado que
 éste modelo en particular carece de métodos, o comportamientos.
-- Creado el archivo de modelo de *Go* llamado *accountingTransaction.go* con:
+- Creado el archivo de modelo *accountingTransaction.go* de *Go* en su directorio
+correspondiente con:
     > `$ touch models/accountingTransaction.go`
 - Implementado el modelo de *AccountingTransaction* de *Go*. Se han realizado pruebas
 satisfactorias a su único método (por el momento a fecha de hoy):
@@ -179,10 +211,10 @@ satisfactorias a su único método (por el momento a fecha de hoy):
 2022-06-29:6
 - Actualizado *README.md*:
     - Corregido algunos errores de salto de línea en las *blockquotes*.
-- Creado el directorio de pruebas *tests* en el directorio raíz del proyecto con:
+- Creado el directorio de pruebas *tests* en el directorio 'raíz' del proyecto con:
     > `$ mkdir tests`
-- Creado el archivo de tests *person_test.go* de *Go* para la realización de pruebas
-sobre el modelo *Person* de *Go* con:
+- Creado el archivo de tests *person_test.go* de *Go* en su directorio correspondiente
+para la realización de pruebas sobre el modelo *Person* de *Go* con:
     > `$ touch tests/person_test.go`
 - Implementadas funciones de prueba en el archivo de tests *person_test.go* de *Go* para
 los métodos, o comportamientos, del modelo *Person* de *Go*:
@@ -243,11 +275,11 @@ las imágenes de compilación creadas, con:
     - Adelantada sección 'Conclusiones' justo antes de sección 'Diario'
     - Cambiado el orden de entradas de diario de arriba a abajo, de mas reciente a mas
     antigüo.
-- Creado el directorio de base de datos *database* en el directorio raíz del proyecto
+- Creado el directorio de base de datos *database* en el directorio 'raíz' del proyecto
 con:
     > `$ mkdir database`
-- Creado el archivo de consulta de base de datos inicial *initialQuery.sql* de *SQL* en
-el directorio de base de datos con:
+- Creado el archivo de consulta de base de datos *initialQuery.sql* de *SQL* en su directorio
+correspondiente con:
     > `$ touch database/initialQuery.sql`
 - Implementada la entidad , o tabla, de base de datos 'persons' de *SQL* y comentado el
 código escrito.
@@ -257,7 +289,8 @@ como las entradas de éste diario, salvo excepciones puntuales. (Ergo este *comm
 
 2022-06-29:2
 - Actualizado *README.md*: cambiado los títulos *h3* y *h5* a *h2* y *h3* respectivamente.
-- Creado el directorio *models* para los modelos de *Go* con:
+- Creado el directorio de modelos *models* en el directorio 'raíz' del proyecto, para los
+modelos de *Go* con:
     > `$ mkdir models`
 - Creado el archivo *person.go* de modelo de *Go* en su directorio correspondiente con:
     > `$ touch models/person.go`
@@ -265,23 +298,23 @@ como las entradas de éste diario, salvo excepciones puntuales. (Ergo este *comm
 
 
 2022-06-29:1
-- Crearé el directorio *generalrestapi* que será el directorio raíz del proyecto local
+- Creado el directorio *generalrestapi* que será el directorio 'raíz' del proyecto local
 con:
     > `$ mkdir generalrestapi`
-- Crearé el archivo *README.md* (este mismo), he incluiré éste contenido, en notación
+- Creado el archivo *README.md* (este mismo), he incluiré éste contenido, en notación
 *Mark down*, con:
     > `$ touch README.md`
-- Crearé el repositorio *generalrestapi* de *GitHub* mediante su plataforma web.
-- Iniciaré el módulo de *Go* con:
+- Creado el repositorio *generalrestapi* de *GitHub* mediante su plataforma web.
+- Iniciado el módulo *github.com/aerodinamicat/generalrestapi* de *Go* con:
     > `$ go mod init github.com/aerodinamicat/generalrestapi`
-- Iniciaré el repositorio de git localmente con:
+- Iniciado el repositorio de git localmente con:
     > `$ git init`
-- Añadiré todos los archivos contenidos en la carpeta local del proyecto a git con:
+- Añadidos todos los archivos contenidos en la carpeta local del proyecto a git con:
     > `$ git add .`
-- Realizaré el primer commit con:
+- Realizado el primer commit con:
     > `$ git commit -m "Initial commit - Full push"`
-- Añadiré el repositorio remoto *origin* de *Git*, teniendo previamente configurado
+- Añadido el repositorio remoto *origin* de *Git*, teniendo previamente configurado
 el acceso a *GitHub* con SSH, con:
     > `$ git remote add origin git@github.com:aerodinamicat/generalrestapi.git`
-- Y, por último, realizaré el primer *push* al recién creado repositorio con:
+- Y, por último, realizado el primer *push* al recién creado repositorio de *GitHub* con:
     > `$ git push origin main`

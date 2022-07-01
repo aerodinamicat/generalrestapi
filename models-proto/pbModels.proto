@@ -28,8 +28,9 @@ service PersonService {
 
 message ListPersonsRequest {
     //string parent = 1;                      //* No entiendo que vamos a poner aquí, es decir, porque existe ésta propiedad.
-    int32 page_size = 1;                    //* Cantidad de objetos, en este caso 'personas', mostradas en cada página.
-    string page_token = 2;                  //* Número de la página actual. Ésta numeración siempre comienza en CERO.
+    string order_by = 1;                    //* Conjunto de pares 'clave valor', que obedecen las reglas 'SQL' para la instrucción 'ORDER_BY'.
+    int32 page_size = 2;                    //* Cantidad de objetos, en este caso 'personas', mostradas en cada página.
+    string page_token = 3;                  //* Número de la página actual. Ésta numeración siempre comienza en CERO.
 }
 message ListPersonsResponse {
     repeated Person person = 1;             //* Array, o slice, de objetos, en este caso de tipo 'Person', ya que se definió el modificador 'repeated'.
@@ -52,5 +53,5 @@ message UpdatePersonRequest {
 }
 
 message DeletePersonRequest {
-    string person_id = 1;
+    string id = 1;
 }

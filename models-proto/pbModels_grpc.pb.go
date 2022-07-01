@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.12.4
-// source: pbmodels/pbModels.proto
+// source: models-proto/pbModels.proto
 
 package pbmodels
 
@@ -245,5 +245,5 @@ var PersonService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "pbmodels/pbModels.proto",
+	Metadata: "models-proto/pbModels.proto",
 }
