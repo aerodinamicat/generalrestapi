@@ -77,6 +77,22 @@ podrían ser satisfechas:
 ### Diario
 Y por llevar registro de un diario:
 
+2022-07-01:4
+- Importada librería externa para trabajar con variables de entorno:
+    > `$ go get github.com/kelseyhightower/envconfig`
+- Creado el directorio *launchers-person-service* en el directorio 'raíz' del proyecto con:
+    > `$ mkdir launchers-person-service`
+- Creado el archivo lanzador de *main.go* de *Go* en el directorio correspondiente con:
+    > `$ touch launchers-person-service/main.go`
+- Implementado el archivo *main.go* de *Go* del directorio 'launchers-person-service'.
+- Creado el archivo *Dockerfile* de *Docker* en el directorio 'launchers-person-service'
+con:
+    > `$ touch launchers-person-service/Dockerfile`
+- Implementado el archivo *Dockerfile* de *Docker* del directorio 'launchers-person-service'
+del proyecto. Sé, tengo la absoluta certeza, que no está formulado correctamente, ergo
+necesita ser revisadoantes de ser lanzado.
+
+
 2022-07-01:3
 - Actualizado *README.md*:
     - Corregidos algunos *typos* dispersos por este documento.
@@ -85,7 +101,7 @@ Y por llevar registro de un diario:
     - Removidos los caracteres de escape '`' en los enlaces de éste mismo archivo.
 - Implementado el modelo *PersonsServer* de *Go* para satisfacer el servicio
 *PersonService* ubicado en el archivo *pbModels.go*.
-- Creado el archivo *databaseRepository.go* de *Go* en el directorio correspondiente
+- Creado el archivo *databaseRepository.go* de *Go* en su directorio correspondiente
 con:
     > `$ touch repositories/databaseRepository.go`
 - Implementado el modelo *DatabaseRepository* de *Go*. No se ha realizado prueba alguna.

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package models;
+package pbmodels;
 
 option go_package = "github.com/aerodinamicat/generalrestapi/pbmodels";
 

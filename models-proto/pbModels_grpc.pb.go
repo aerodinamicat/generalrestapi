@@ -39,7 +39,7 @@ func NewPersonServiceClient(cc grpc.ClientConnInterface) PersonServiceClient {
 
 func (c *personServiceClient) ListPersons(ctx context.Context, in *ListPersonsRequest, opts ...grpc.CallOption) (*ListPersonsResponse, error) {
 	out := new(ListPersonsResponse)
-	err := c.cc.Invoke(ctx, "/models.PersonService/ListPersons", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pbmodels.PersonService/ListPersons", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -48,7 +48,7 @@ func (c *personServiceClient) ListPersons(ctx context.Context, in *ListPersonsRe
 
 func (c *personServiceClient) GetPerson(ctx context.Context, in *GetPersonRequest, opts ...grpc.CallOption) (*Person, error) {
 	out := new(Person)
-	err := c.cc.Invoke(ctx, "/models.PersonService/GetPerson", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pbmodels.PersonService/GetPerson", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func (c *personServiceClient) GetPerson(ctx context.Context, in *GetPersonReques
 
 func (c *personServiceClient) CreatePerson(ctx context.Context, in *CreatePersonRequest, opts ...grpc.CallOption) (*Person, error) {
 	out := new(Person)
-	err := c.cc.Invoke(ctx, "/models.PersonService/CreatePerson", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pbmodels.PersonService/CreatePerson", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +66,7 @@ func (c *personServiceClient) CreatePerson(ctx context.Context, in *CreatePerson
 
 func (c *personServiceClient) UpdatePerson(ctx context.Context, in *UpdatePersonRequest, opts ...grpc.CallOption) (*Person, error) {
 	out := new(Person)
-	err := c.cc.Invoke(ctx, "/models.PersonService/UpdatePerson", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pbmodels.PersonService/UpdatePerson", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -75,7 +75,7 @@ func (c *personServiceClient) UpdatePerson(ctx context.Context, in *UpdatePerson
 
 func (c *personServiceClient) DeletePerson(ctx context.Context, in *DeletePersonRequest, opts ...grpc.CallOption) (*Empty, error) {
 	out := new(Empty)
-	err := c.cc.Invoke(ctx, "/models.PersonService/DeletePerson", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pbmodels.PersonService/DeletePerson", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -136,7 +136,7 @@ func _PersonService_ListPersons_Handler(srv interface{}, ctx context.Context, de
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/models.PersonService/ListPersons",
+		FullMethod: "/pbmodels.PersonService/ListPersons",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(PersonServiceServer).ListPersons(ctx, req.(*ListPersonsRequest))
@@ -154,7 +154,7 @@ func _PersonService_GetPerson_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/models.PersonService/GetPerson",
+		FullMethod: "/pbmodels.PersonService/GetPerson",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(PersonServiceServer).GetPerson(ctx, req.(*GetPersonRequest))
@@ -172,7 +172,7 @@ func _PersonService_CreatePerson_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/models.PersonService/CreatePerson",
+		FullMethod: "/pbmodels.PersonService/CreatePerson",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(PersonServiceServer).CreatePerson(ctx, req.(*CreatePersonRequest))
@@ -190,7 +190,7 @@ func _PersonService_UpdatePerson_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/models.PersonService/UpdatePerson",
+		FullMethod: "/pbmodels.PersonService/UpdatePerson",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(PersonServiceServer).UpdatePerson(ctx, req.(*UpdatePersonRequest))
@@ -208,7 +208,7 @@ func _PersonService_DeletePerson_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/models.PersonService/DeletePerson",
+		FullMethod: "/pbmodels.PersonService/DeletePerson",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(PersonServiceServer).DeletePerson(ctx, req.(*DeletePersonRequest))
@@ -220,7 +220,7 @@ func _PersonService_DeletePerson_Handler(srv interface{}, ctx context.Context, d
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var PersonService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "models.PersonService",
+	ServiceName: "pbmodels.PersonService",
 	HandlerType: (*PersonServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

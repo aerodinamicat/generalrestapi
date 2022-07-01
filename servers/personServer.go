@@ -3,7 +3,7 @@ package servers
 import (
 	"context"
 
-	"github.com/aerodinamicat/generalrestapi/pbmodels"
+	pbmodels "github.com/aerodinamicat/generalrestapi/pbmodels"
 	"github.com/aerodinamicat/generalrestapi/repositories"
 )
 
